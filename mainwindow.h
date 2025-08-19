@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "testclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +19,5 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    TestClient *client;
 };
 #endif // MAINWINDOW_H
