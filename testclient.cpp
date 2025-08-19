@@ -2,7 +2,6 @@
 #include <QDebug>
 #include <QDateTime>
 #include <iostream>
-#include "sin_generator.h"
 
 #include <QProtobufSerializer> // bunu da unutma
 QElapsedTimer elapsedtimer;
@@ -172,3 +171,11 @@ void TestClient::onTimeout()
     m_timer.start();
 
 }
+qint64 TestClient::sinValue(const QElapsedTimer& timer,
+                double freq, double amp, double phase)
+{
+    const double t = timer.elapsed() / 1000.0;           // saniye
+    const double angle = 2 * M_PI * freq * t + phase;    // rad
+    return static_cast<qint64>(amp * qSin(angle));
+}
+

@@ -7,6 +7,8 @@
 #include <QProtobufSerializer>
 #include "message.qpb.h"
 #include <QTimer>
+#include <QtMath>
+#include <QElapsedTimer>
 
 class TestClient : public QObject
 {
@@ -22,6 +24,8 @@ private slots:
     void onReadyRead();
     void onDisconnected();
     void onTimeout();
+    qint64 sinValue(const QElapsedTimer& timer,
+                    double freq=0.11, double amp=100.0, double phase=3.0);
 
 private:
     int counter = 0;
